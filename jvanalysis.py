@@ -114,7 +114,7 @@ parser.add_argument('path',
                     help='directory containing the JV files to be analysed')
 parser.add_argument('-v','--version',
                     action='version',
-                    version='0.1')
+                    version='1.0')
 analyse_dir = parser.parse_args()
 analyse_dir = os.getcwd()+'/'+format(analyse_dir.path) # This way I provide an absolute path.
 
@@ -153,6 +153,7 @@ if not Path(output_dir).is_dir():
 
 # Main loop to process files in directory.
 for filename in good_files:
+    print('Processing file: '+filename)
     # Determine order of current and voltage column.
     if cfg['vcol'] < cfg['ccol']:
         cnames = ['V','C']
