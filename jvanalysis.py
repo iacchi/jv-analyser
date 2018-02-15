@@ -61,7 +61,7 @@ def get_parameters(jv):
 
 # Function to plot the JV curve with a table of main parameters underneath.
 def jv_plot(jv,filename,Voc,Jsc,FF,PCE,output_dir):
-    # Only plot cell parameters if it's not a dark scan.
+    # Don't plot cell parameters if it's a dark scan.
     if PCE != '0.00':
         table_values = [[Voc,Jsc,FF,PCE]]
     else:
@@ -97,7 +97,7 @@ def jv_datafile(jv,filename,Voc,Jsc,FF,PCE,output_dir):
 
 # Main program
 
-# Check if configuration file fr the script exists and load it.
+# Check if configuration file for the script exists and load it.
 script_path = os.path.dirname(os.path.realpath(__file__)) # This is done so I can call the script from everywhere.
 if Path(script_path+'/config.yaml').is_file():
     cfg = yaml.load(open(script_path+'/config.yaml', 'r'))
